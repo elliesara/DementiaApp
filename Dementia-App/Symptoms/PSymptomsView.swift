@@ -117,13 +117,14 @@ struct PSymptomsView: View {
                 pSymptom.pCheckedState = pSymptomsList[i].pState
             }
         }
-        CoreDataManager.shared.saveContext()
         
         /// reset CheckMarks
         
         for i in 0..<pSymptomsList.count {
             pSymptomsList[i].pState = false
         }
+        
+        CoreDataManager.shared.saveContext()
     }
     
 }
