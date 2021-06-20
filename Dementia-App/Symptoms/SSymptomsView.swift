@@ -85,6 +85,7 @@ struct SSymptomsView: View {
                             
                         }.sheet(isPresented: self.$newSymptom) {
                             NewSymptom()
+                                .environment(\.managedObjectContext, managedObjectContext)
                         }
                         
                         Spacer()
