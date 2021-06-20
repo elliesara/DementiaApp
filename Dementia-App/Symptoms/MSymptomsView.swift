@@ -61,25 +61,7 @@ struct MSymptomsView: View {
                         }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).frame(width: UIScreen.main.bounds.width*0.9)
                         
                         Button(action: { self.newSymptom = true}) {
-                            
-                            HStack(alignment: .center) {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geometry.size.width * 0.05,
-                                           height: geometry.size.height * 0.05)
-                                
-                                Text("New Symptom")
-                                    .font(.system(size: geometry.size.width * 0.048))
-                                    .fontWeight(.bold)
-                            }
-                            .padding()
-                            .foregroundColor(Color(.white))
-                            .frame(width: geometry.size.width * 0.5,
-                                   height: geometry.size.height * 0.063)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                            
+                            NewSymptomButtonView(geometry: geometry)  
                         }.sheet(isPresented: self.$newSymptom) {
                             NewSymptom()
                                 .environment(\.managedObjectContext, managedObjectContext)
