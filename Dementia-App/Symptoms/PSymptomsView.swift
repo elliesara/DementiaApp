@@ -74,6 +74,7 @@ struct PSymptomsView: View {
                     }
                     
                 }
+                .navigationBarTitle("", displayMode: .inline)
                 .navigationBarItems(leading: Button("Cancel") { self.presentationMode.wrappedValue.dismiss() },
                                     trailing: Button("Submit") {
                                                 self.submitButton()

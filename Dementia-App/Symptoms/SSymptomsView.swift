@@ -75,6 +75,7 @@ struct SSymptomsView: View {
                         Spacer()
                         
                     }
+                    .navigationBarTitle("", displayMode: .inline)
                     .navigationBarItems(leading:
                         Button("Cancel") { self.presentationMode.wrappedValue.dismiss() }, trailing:
                         Button("Submit") { self.submitButton() }
