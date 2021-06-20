@@ -14,12 +14,6 @@ struct PSymptomsView: View {
     @FetchRequest(fetchRequest: PSymptomListEntity.getPSymptomList()) var pSymptomsList: FetchedResults<PSymptomListEntity>
     @State private var newSymptom: Bool = false
     
-    init() {
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
-        UITableView.appearance().tableFooterView = UIView()
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             

@@ -12,6 +12,12 @@ struct ContentView: View {
     
     let appState = AppState()
     
+    init() {
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
+        UITableView.appearance().tableFooterView = UIView()
+    }
+    
     var body: some View {
         
         if appState.reset == .reset {

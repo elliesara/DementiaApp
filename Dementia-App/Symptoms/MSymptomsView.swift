@@ -23,12 +23,6 @@ struct MSymptomsView: View {
                              "Explosive behavior",]
     @State var mChecks = [false, false, false, false]
     
-    init(){
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)
-        UITableView.appearance().tableFooterView = UIView()
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             

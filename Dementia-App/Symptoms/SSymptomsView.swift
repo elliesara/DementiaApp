@@ -27,12 +27,6 @@ struct SSymptomsView: View {
     
     @State var sChecks = [false, false, false, false, false, false, false, false, false, false]
     
-    init(){
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.8804875016, blue: 0.7963053584, alpha: 1)
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.8804875016, blue: 0.7963053584, alpha: 1)
-        UITableView.appearance().tableFooterView = UIView()
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             
