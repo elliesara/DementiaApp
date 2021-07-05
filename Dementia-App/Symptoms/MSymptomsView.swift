@@ -23,12 +23,6 @@ struct MSymptomsView: View {
                              "Explosive behavior",]
     @State var mChecks = [false, false, false, false]
     
-    init(){
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.7541411519, green: 0.8313546777, blue: 0.9701576829, alpha: 1)
-        UITableView.appearance().tableFooterView = UIView()
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             
@@ -67,31 +61,16 @@ struct MSymptomsView: View {
                         }.foregroundColor(Color(#colorLiteral(red: 0.2928513885, green: 0.2821008563, blue: 0.2951488495, alpha: 1))).frame(width: UIScreen.main.bounds.width*0.9)
                         
                         Button(action: { self.newSymptom = true}) {
-                            
-                            HStack(alignment: .center) {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geometry.size.width * 0.05,
-                                           height: geometry.size.height * 0.05)
-                                
-                                Text("New Symptom")
-                                    .font(.system(size: geometry.size.width * 0.048))
-                                    .fontWeight(.bold)
-                            }
-                            .padding()
-                            .foregroundColor(Color(.white))
-                            .frame(width: geometry.size.width * 0.5,
-                                   height: geometry.size.height * 0.063)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                            
+                            NewSymptomButtonView(geometry: geometry)  
                         }.sheet(isPresented: self.$newSymptom) {
                             NewSymptom()
+                                .environment(\.managedObjectContext, managedObjectContext)
                         }
                         
                         Spacer()
-                    }.navigationBarItems(leading:
+                    }
+                    .navigationBarTitle("", displayMode: .inline)
+                    .navigationBarItems(leading:
                         Button("Cancel") { self.presentationMode.wrappedValue.dismiss()}, trailing:
                         Button("Submit") { self.submitButton() }
                     )

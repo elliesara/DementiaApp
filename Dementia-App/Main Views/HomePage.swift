@@ -10,6 +10,8 @@ import SwiftUI
 
 struct HomePage: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State private var physical = false
     @State private var mental = false
     @State private var social = false
@@ -53,6 +55,7 @@ struct HomePage: View {
                             .padding(.top)
                             .sheet(isPresented: self.$physical) {
                                 PSymptomsView()
+                                    .environment(\.managedObjectContext, managedObjectContext)
                             }
                             
                             Button(action: { self.mental = true }) {
@@ -81,6 +84,7 @@ struct HomePage: View {
                             }
                             .sheet(isPresented: self.$mental) {
                                 MSymptomsView()
+                                    .environment(\.managedObjectContext, managedObjectContext)
                             }
                             
                             Button(action: { self.social = true }) {
@@ -109,6 +113,7 @@ struct HomePage: View {
                             }
                             .sheet(isPresented: self.$social) {
                                 SSymptomsView()
+                                    .environment(\.managedObjectContext, managedObjectContext)
                             }
                             
                             Spacer()

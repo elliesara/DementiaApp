@@ -41,6 +41,7 @@
 		0DE3D24624C3D95A0015A31C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */; };
 		0DE3D24924C3D95A0015A31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */; };
 		0DFF68442515BF8E00B16CB0 /* PSymptomsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */; };
+		3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		0DE3D24824C3D95A0015A31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DE3D24A24C3D95A0015A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsViewTest.swift; sourceTree = "<group>"; };
+		3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptomButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		0D62486924C3DAA00085C195 /* Symptoms */ = {
 			isa = PBXGroup;
 			children = (
+				3662A2E5267FDA5E0082740E /* CommonViews */,
 				0D62486A24C3DAB50085C195 /* BigCategoriesView.swift */,
 				0D62487224C3DB3E0085C195 /* PSymptomsView.swift */,
 				0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */,
@@ -207,6 +210,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		3662A2E5267FDA5E0082740E /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,6 +304,7 @@
 				0D0DE49824FC397B00C6CE2C /* PSymptomView.swift in Sources */,
 				0D9E294B24E6427F00682DAA /* SSymptomEntity.swift in Sources */,
 				0D898151252059B8007058DC /* TextFieldType.swift in Sources */,
+				3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */,
 				0D62487124C3DB2A0085C195 /* Old-SocialView.swift in Sources */,
 				0D62486624C3DA800085C195 /* ReportsView.swift in Sources */,
 				0D62486B24C3DAB50085C195 /* BigCategoriesView.swift in Sources */,

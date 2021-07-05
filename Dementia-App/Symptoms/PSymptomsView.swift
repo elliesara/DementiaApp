@@ -14,12 +14,6 @@ struct PSymptomsView: View {
     @FetchRequest(fetchRequest: PSymptomListEntity.getPSymptomList()) var pSymptomsList: FetchedResults<PSymptomListEntity>
     @State private var newSymptom: Bool = false
     
-    init() {
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.7568627451, green: 0.8426002264, blue: 0.8870300651, alpha: 1)
-        UITableView.appearance().tableFooterView = UIView()
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             
@@ -70,33 +64,17 @@ struct PSymptomsView: View {
                         Button(action: {
                             self.newSymptom = true
                         }) {
-                            
-                            HStack(alignment: .center) {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geometry.size.width * 0.05,
-                                           height: geometry.size.height * 0.05)
-                                
-                                Text("New Symptom")
-                                    .font(.system(size: geometry.size.width * 0.048))
-                                    .fontWeight(.bold)
-                            }
-                            .padding()
-                            .foregroundColor(Color(.white))
-                            .frame(width: geometry.size.width * 0.5,
-                                   height: geometry.size.height * 0.063)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                            
+                            NewSymptomButtonView(geometry: geometry)
                         }.sheet(isPresented: self.$newSymptom) {
                             NewSymptom()
+                                .environment(\.managedObjectContext, managedObjectContext)
                         }
                         
                         Spacer()
                     }
                     
                 }
+                .navigationBarTitle("", displayMode: .inline)
                 .navigationBarItems(leading: Button("Cancel") { self.presentationMode.wrappedValue.dismiss() },
                                     trailing: Button("Submit") {
                                                 self.submitButton()

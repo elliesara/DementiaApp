@@ -27,12 +27,6 @@ struct SSymptomsView: View {
     
     @State var sChecks = [false, false, false, false, false, false, false, false, false, false]
     
-    init(){
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.8804875016, blue: 0.7963053584, alpha: 1)
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.8804875016, blue: 0.7963053584, alpha: 1)
-        UITableView.appearance().tableFooterView = UIView()
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             
@@ -72,30 +66,16 @@ struct SSymptomsView: View {
                         .frame(width: UIScreen.main.bounds.width*0.9)
                         
                         Button(action: { self.newSymptom = true }) {
-                            
-                            HStack(alignment: .center) {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geometry.size.width*0.05, height: geometry.size.height*0.05)
-                                
-                                Text("New Symptom")
-                                    .font(.system(size: geometry.size.width*0.048))
-                                    .fontWeight(.bold)
-                            }
-                            .padding()
-                            .foregroundColor(Color.white)
-                            .frame(width: geometry.size.width*0.5, height: geometry.size.height*0.063)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                            
+                            NewSymptomButtonView(geometry: geometry)
                         }.sheet(isPresented: self.$newSymptom) {
                             NewSymptom()
+                                .environment(\.managedObjectContext, managedObjectContext)
                         }
                         
                         Spacer()
                         
                     }
+                    .navigationBarTitle("", displayMode: .inline)
                     .navigationBarItems(leading:
                         Button("Cancel") { self.presentationMode.wrappedValue.dismiss() }, trailing:
                         Button("Submit") { self.submitButton() }

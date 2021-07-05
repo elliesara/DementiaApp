@@ -17,19 +17,6 @@ struct NewSymptom: View {
     
     @State private var newSypmtomArr: [String] = []
     
-    init() {
-            // Not the same as manipulating the proxy directly
-            let appearance = UINavigationBarAppearance()
-            
-            // This overrides everything we set up earlier
-            appearance.configureWithTransparentBackground()
-            
-            // We make sure to apply the style for good
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-            UINavigationBar.appearance().standardAppearance = appearance
-            
-    }
-    
     var body: some View {
         NavigationView {
             
