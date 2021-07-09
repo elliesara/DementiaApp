@@ -13,6 +13,8 @@ struct ReportsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject var appState: AppState
     @FetchRequest(fetchRequest: PSymptomEntity.getPSymptoms()) var physicalSymptoms: FetchedResults<PSymptomEntity>
+    @FetchRequest(fetchRequest: MSymptomEntity.getMSymptoms()) var mentalSymptoms: FetchedResults<MSymptomEntity>
+    @FetchRequest(fetchRequest: SSymptomEntity.getSSymptoms()) var socialSymptoms: FetchedResults<SSymptomEntity>
     
     @State private var expand = false
     
@@ -24,7 +26,7 @@ struct ReportsView: View {
                 
                 VStack(alignment: .leading) {
                     
-                    Text("Your Physical Symptoms").font(.system(size: UIScreen.main.bounds.height*0.03)).fontWeight(.semibold).padding(.bottom)
+                    Text("Your Symptoms").font(.system(size: UIScreen.main.bounds.height*0.03)).fontWeight(.semibold).padding(.bottom)
                     
                     Button(action: { self.expand.toggle() }) {
                         HStack {
@@ -36,6 +38,12 @@ struct ReportsView: View {
                     if expand {
                         ForEach(physicalSymptoms) { pSymptom in
                             PSymptomView(pSymptomName: pSymptom.pSymptomName, pCreatedAt: "\(pSymptom.pCreatedAt.shortMedium)").padding(.top)
+                        }
+                        ForEach(mentalSymptoms) { mSymptom in
+                            MSymptomView(mSymptomName: mSymptom.mSymptomName, mCreatedAt: "\(mSymptom.mCreatedAt.shortMedium)").padding(.top)
+                        }
+                        ForEach(socialSymptoms) { sSymptom in
+                            SSymptomView(sSymptomName: sSymptom.sSymptomName, sCreatedAt: "\(sSymptom.sCreatedAt.shortMedium)").padding(.top)
                         }
                     }
                     

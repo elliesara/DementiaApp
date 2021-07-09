@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D084C082697CBB5006A5248 /* SSymptomListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D084C072697CBB5006A5248 /* SSymptomListEntity.swift */; };
+		0D084C0A2697CBC5006A5248 /* MSymptomListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D084C092697CBC5006A5248 /* MSymptomListEntity.swift */; };
+		0D084C0C2697D86D006A5248 /* MSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D084C0B2697D86D006A5248 /* MSymptomView.swift */; };
+		0D084C0E2697D876006A5248 /* SSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D084C0D2697D876006A5248 /* SSymptomView.swift */; };
 		0D0DE49824FC397B00C6CE2C /* PSymptomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0DE49724FC397B00C6CE2C /* PSymptomView.swift */; };
 		0D16A52125CA093400396666 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D16A52025CA093400396666 /* HomePage.swift */; };
 		0D17AD662516FEDF0017DDC7 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D17AD652516FEDF0017DDC7 /* AppState.swift */; };
@@ -45,6 +49,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D084C072697CBB5006A5248 /* SSymptomListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSymptomListEntity.swift; sourceTree = "<group>"; };
+		0D084C092697CBC5006A5248 /* MSymptomListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSymptomListEntity.swift; sourceTree = "<group>"; };
+		0D084C0B2697D86D006A5248 /* MSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSymptomView.swift; sourceTree = "<group>"; };
+		0D084C0D2697D876006A5248 /* SSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSymptomView.swift; sourceTree = "<group>"; };
 		0D0DE49724FC397B00C6CE2C /* PSymptomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomView.swift; sourceTree = "<group>"; };
 		0D16A52025CA093400396666 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		0D17AD652516FEDF0017DDC7 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -156,8 +164,12 @@
 				0D0DE49724FC397B00C6CE2C /* PSymptomView.swift */,
 				0D9E294424E6412A00682DAA /* PSymptomEntity.swift */,
 				0D6CD1F82515B155008DDBAA /* PSymptomListEntity.swift */,
+				0D084C0B2697D86D006A5248 /* MSymptomView.swift */,
 				0D9E294824E6425400682DAA /* MSymptomEntity.swift */,
+				0D084C092697CBC5006A5248 /* MSymptomListEntity.swift */,
+				0D084C0D2697D876006A5248 /* SSymptomView.swift */,
 				0D9E294A24E6427F00682DAA /* SSymptomEntity.swift */,
+				0D084C072697CBB5006A5248 /* SSymptomListEntity.swift */,
 				0D6CD1FA2515B5EB008DDBAA /* MockedData.swift */,
 				0D755C7C250C8AE100306BE7 /* DateHelper.swift */,
 				0D71A566250439600072CF61 /* Dementia-App.xcdatamodeld */,
@@ -295,7 +307,9 @@
 				0D71A568250439600072CF61 /* Dementia-App.xcdatamodeld in Sources */,
 				0D62486F24C3DAD40085C195 /* Old-MentalView.swift in Sources */,
 				0D16A52125CA093400396666 /* HomePage.swift in Sources */,
+				0D084C082697CBB5006A5248 /* SSymptomListEntity.swift in Sources */,
 				0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */,
+				0D084C0E2697D876006A5248 /* SSymptomView.swift in Sources */,
 				0D62487524C3DB570085C195 /* MSymptomsView.swift in Sources */,
 				0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */,
 				0D31529E24E8930D0090886F /* CoreDataManager.swift in Sources */,
@@ -304,10 +318,12 @@
 				0D0DE49824FC397B00C6CE2C /* PSymptomView.swift in Sources */,
 				0D9E294B24E6427F00682DAA /* SSymptomEntity.swift in Sources */,
 				0D898151252059B8007058DC /* TextFieldType.swift in Sources */,
+				0D084C0C2697D86D006A5248 /* MSymptomView.swift in Sources */,
 				3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */,
 				0D62487124C3DB2A0085C195 /* Old-SocialView.swift in Sources */,
 				0D62486624C3DA800085C195 /* ReportsView.swift in Sources */,
 				0D62486B24C3DAB50085C195 /* BigCategoriesView.swift in Sources */,
+				0D084C0A2697CBC5006A5248 /* MSymptomListEntity.swift in Sources */,
 				0D62487724C3DB6A0085C195 /* SSymptomsView.swift in Sources */,
 				0D62486D24C3DAC60085C195 /* Old-PhysicalView.swift in Sources */,
 				0D9E293C24E63E0B00682DAA /* AccountInfoView.swift in Sources */,
