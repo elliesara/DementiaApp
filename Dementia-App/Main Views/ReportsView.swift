@@ -11,57 +11,66 @@ import SwiftUI
 struct ReportsView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
-    @EnvironmentObject var appState: AppState
-    @FetchRequest(fetchRequest: PSymptomEntity.getPSymptoms()) var physicalSymptoms: FetchedResults<PSymptomEntity>
-    @FetchRequest(fetchRequest: MSymptomEntity.getMSymptoms()) var mentalSymptoms: FetchedResults<MSymptomEntity>
-    @FetchRequest(fetchRequest: SSymptomEntity.getSSymptoms()) var socialSymptoms: FetchedResults<SSymptomEntity>
-    
-    @State private var expand = false
-    
-    var body: some View {
-        
-        NavigationView {
-            
-            ScrollView {
-                
-                VStack(alignment: .leading) {
-                    
-                    Text("Your Symptoms").font(.system(size: UIScreen.main.bounds.height*0.03)).fontWeight(.semibold).padding(.bottom)
-                    
-                    Button(action: { self.expand.toggle() }) {
-                        HStack {
-                            Text("Self-Care Deficit")
-                            Image(systemName: expand ? "chevron.up" : "chevron.down")
-                        }
-                    }
-                    
-                    if expand {
-                        ForEach(physicalSymptoms) { pSymptom in
-                            PSymptomView(pSymptomName: pSymptom.pSymptomName, pCreatedAt: "\(pSymptom.pCreatedAt.shortMedium)").padding(.top)
-                        }
-                        ForEach(mentalSymptoms) { mSymptom in
-                            MSymptomView(mSymptomName: mSymptom.mSymptomName, mCreatedAt: "\(mSymptom.mCreatedAt.shortMedium)").padding(.top)
-                        }
-                        ForEach(socialSymptoms) { sSymptom in
-                            SSymptomView(sSymptomName: sSymptom.sSymptomName, sCreatedAt: "\(sSymptom.sCreatedAt.shortMedium)").padding(.top)
-                        }
-                    }
-                    
-                    /// RESETS DATA WITHIN APP (Only used for debugging purposes)
-//                    Button("Reset data") {
-//                        appState.reset = .reset
-//                        let _ = MockedData()
-//                    }
-                    
-                    
-                }.navigationBarTitle("Reports")
-                .padding(.bottom)
-                .onAppear() {
-                    CoreDataManager.shared.whereIsMySQLite()
-                }
-            }
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("E, d MMM yyyy")
+        return formatter
+    }()
+    @State private var symptomType = 0 {
+        didSet {
+            print(symptomType)
         }
     }
+    
+    var body: some View {
+        NavigationView {
+            List {
+                header
+                ForEach(entries) { entry in
+                    Section(header: header(for: entry)) {
+                        ForEach(entry.symptoms) { symptom in
+                            Text(symptom.pSymptomName)
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Reports")
+        }
+    }
+    
+    private func header(for entry: ReportData) -> some View {
+        Text(dateFormatter.string(from: entry.date))
+            .padding([.top, .bottom])
+    }
+    
+    private var header: some View {
+        Picker(selection: $symptomType, label: Text("Select the type of symptoms")) {
+            Text("Physics").tag(0)
+            Text("Mental").tag(1)
+            Text("Social").tag(2)
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .labelsHidden()
+        .padding()
+    }
+    
+    var entries: [ReportData] {
+        let request = PSymptomEntity.getPSymptoms()
+        let entities = try! managedObjectContext.fetch(request)
+        
+        return Dictionary(grouping: entities, by: { $0.pCreatedAt.startOfDay }).map { date, value in
+            ReportData(date: date, symptoms: value)
+        }.sorted(by: { $0.date > $1.date })
+    }
+}
+
+struct ReportData: Identifiable {
+    var id: Date {
+        date
+    }
+    
+    let date: Date
+    let symptoms: [PSymptomEntity]
 }
 
 struct ReportsView_Previews: PreviewProvider {

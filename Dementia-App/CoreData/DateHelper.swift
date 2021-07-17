@@ -123,7 +123,7 @@ extension Date {
     
     /// Start of day local time
     var startOfDay: Date {
-        return Calendar.current.startOfDay(for: Date())
+        return Calendar.current.startOfDay(for: self)
     }
     
     /// Start of adjacent day local time

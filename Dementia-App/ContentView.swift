@@ -45,7 +45,7 @@ struct ContentView: View {
     
     private func configureAppearance() {
         configureTableViewAppearance()
-        configureNavigationBarAppearance()
+//        configureNavigationBarAppearance()
     }
     
     private func configureTableViewAppearance() {
