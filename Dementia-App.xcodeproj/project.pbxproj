@@ -46,6 +46,7 @@
 		0DE3D24924C3D95A0015A31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */; };
 		0DFF68442515BF8E00B16CB0 /* PSymptomsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */; };
 		3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */; };
+		36C1FA8626AD977B00BC2374 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8526AD977B00BC2374 /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		0DE3D24A24C3D95A0015A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsViewTest.swift; sourceTree = "<group>"; };
 		3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptomButtonView.swift; sourceTree = "<group>"; };
+		36C1FA8526AD977B00BC2374 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				0D16A52025CA093400396666 /* HomePage.swift */,
 				0D62486524C3DA800085C195 /* ReportsView.swift */,
 				0D62486724C3DA920085C195 /* SettingsView.swift */,
+				36C1FA8526AD977B00BC2374 /* GraphView.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			files = (
 				0D755C7D250C8AE100306BE7 /* DateHelper.swift in Sources */,
 				0D62486824C3DA920085C195 /* SettingsView.swift in Sources */,
+				36C1FA8626AD977B00BC2374 /* GraphView.swift in Sources */,
 				0DE3D23A24C3D9590015A31C /* AppDelegate.swift in Sources */,
 				0D71A568250439600072CF61 /* Dementia-App.xcdatamodeld in Sources */,
 				0D62486F24C3DAD40085C195 /* Old-MentalView.swift in Sources */,
