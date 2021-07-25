@@ -63,6 +63,9 @@ struct GraphView: View {
     
     private func barHeight(for entry: GraphData) -> CGFloat {
         let max = CGFloat(data.map(\.value).max() ?? 0)
+        if max == 0 {
+            return 0
+        }
         return CGFloat(entry.value) / max
     }
 }

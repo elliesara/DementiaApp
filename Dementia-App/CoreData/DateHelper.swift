@@ -73,6 +73,13 @@ extension Date {
         formatter.timeStyle = .medium
         return formatter.string(from: self)
     }
+    
+    /// MMMd = Aug 15
+    var dayOfWeek: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E"
+        return formatter.string(from: self)
+    }
 }
 
 
@@ -129,7 +136,7 @@ extension Date {
     /// Start of adjacent day local time
     func startOfAdjacentDay(offset: Offset) -> Date {
         var components = DateComponents()
-        components.weekday = 1 + offset.rawValue
+        components.weekday = offset.rawValue
         return Calendar.current.date(byAdding: components, to: startOfDay)!
     }
     

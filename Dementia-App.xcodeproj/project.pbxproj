@@ -47,6 +47,9 @@
 		0DFF68442515BF8E00B16CB0 /* PSymptomsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */; };
 		3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */; };
 		36C1FA8626AD977B00BC2374 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8526AD977B00BC2374 /* GraphView.swift */; };
+		36C1FA8A26ADB27F00BC2374 /* DayGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8926ADB27F00BC2374 /* DayGraphView.swift */; };
+		36C1FA8C26ADF32B00BC2374 /* WeekGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8B26ADF32B00BC2374 /* WeekGraphView.swift */; };
+		36C1FA8E26ADFD3300BC2374 /* MonthGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8D26ADFD3300BC2374 /* MonthGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +95,9 @@
 		0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsViewTest.swift; sourceTree = "<group>"; };
 		3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptomButtonView.swift; sourceTree = "<group>"; };
 		36C1FA8526AD977B00BC2374 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		36C1FA8926ADB27F00BC2374 /* DayGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGraphView.swift; sourceTree = "<group>"; };
+		36C1FA8B26ADF32B00BC2374 /* WeekGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekGraphView.swift; sourceTree = "<group>"; };
+		36C1FA8D26ADFD3300BC2374 /* MonthGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +114,9 @@
 		0D62486224C3DA430085C195 /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
+				36C1FA8826ADB26A00BC2374 /* Reports */,
 				0D62486324C3DA600085C195 /* HomeView.swift */,
 				0D16A52025CA093400396666 /* HomePage.swift */,
-				0D62486524C3DA800085C195 /* ReportsView.swift */,
 				0D62486724C3DA920085C195 /* SettingsView.swift */,
 				36C1FA8526AD977B00BC2374 /* GraphView.swift */,
 			);
@@ -233,6 +239,17 @@
 			path = CommonViews;
 			sourceTree = "<group>";
 		};
+		36C1FA8826ADB26A00BC2374 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				0D62486524C3DA800085C195 /* ReportsView.swift */,
+				36C1FA8926ADB27F00BC2374 /* DayGraphView.swift */,
+				36C1FA8B26ADF32B00BC2374 /* WeekGraphView.swift */,
+				36C1FA8D26ADFD3300BC2374 /* MonthGraphView.swift */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,10 +331,12 @@
 				0D084C082697CBB5006A5248 /* SSymptomListEntity.swift in Sources */,
 				0D62487924C3DB780085C195 /* NewSymptom.swift in Sources */,
 				0D084C0E2697D876006A5248 /* SSymptomView.swift in Sources */,
+				36C1FA8E26ADFD3300BC2374 /* MonthGraphView.swift in Sources */,
 				0D62487524C3DB570085C195 /* MSymptomsView.swift in Sources */,
 				0D62487C24C3DBA50085C195 /* TrackDiet.swift in Sources */,
 				0D31529E24E8930D0090886F /* CoreDataManager.swift in Sources */,
 				0DE3D24124C3D9590015A31C /* ContentView.swift in Sources */,
+				36C1FA8A26ADB27F00BC2374 /* DayGraphView.swift in Sources */,
 				0D62486424C3DA600085C195 /* HomeView.swift in Sources */,
 				0D0DE49824FC397B00C6CE2C /* PSymptomView.swift in Sources */,
 				0D9E294B24E6427F00682DAA /* SSymptomEntity.swift in Sources */,
@@ -335,6 +354,7 @@
 				0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */,
 				0D9E294924E6425400682DAA /* MSymptomEntity.swift in Sources */,
 				0D9E294524E6412A00682DAA /* PSymptomEntity.swift in Sources */,
+				36C1FA8C26ADF32B00BC2374 /* WeekGraphView.swift in Sources */,
 				0D6CD1FB2515B5EB008DDBAA /* MockedData.swift in Sources */,
 				0D9E293E24E63E2700682DAA /* AboutView.swift in Sources */,
 				0D17AD662516FEDF0017DDC7 /* AppState.swift in Sources */,
