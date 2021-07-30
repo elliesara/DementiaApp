@@ -124,7 +124,7 @@ extension Date {
     
     /// Returns an integer from 1 - 7, with 1 being Sunday and 7 being Saturday
     /// usage: Date().weekDayNumber()   // 4
-    var weekdayNumber : Int {
+    var weekdayNumber: Int {
         return Calendar.current.component(.weekday, from: self)
     }
     
