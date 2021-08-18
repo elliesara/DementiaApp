@@ -13,6 +13,7 @@ public class MSymptomEntity: NSManagedObject, Identifiable {
     @NSManaged public var mCheckedState: Bool
     @NSManaged public var mCreatedAt: Date
     @NSManaged public var mSymptomName: String
+    @NSManaged public var mSeverity: Int16
 }
 
 extension MSymptomEntity {
