@@ -66,6 +66,13 @@ extension Date {
         return formatter.string(from: self)
     }
     
+    /// long = October 10, 2017
+    var long: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter.string(from: self)
+    }
+    
     /// shortMedium = 10/10/17, 9:42 AM
     var shortMedium: String {
         let formatter = DateFormatter()

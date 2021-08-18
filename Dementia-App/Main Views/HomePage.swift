@@ -118,7 +118,7 @@ struct HomePage: View {
                             
                             Spacer()
                             
-                        }.navigationBarTitle(Text("April 5, 2021"))
+                        }.navigationBarTitle(Text(Date().long))
                         
                         Spacer()
                         
