@@ -23,7 +23,7 @@ struct DayGraphView: View {
         }
     }
     
-    private var entries: [PSymptomEntity] {
+    private var entries: [ReportSymptom] {
         reportData.first(where: { $0.date == Date().startOfDay })?.symptoms ?? []
     }
     
@@ -32,7 +32,7 @@ struct DayGraphView: View {
         let entries = entries
         
         return severities.enumerated().map { index, element in
-            GraphData(value: entries.filter { $0.pSeverity == index + 1 }.count,
+            GraphData(value: entries.filter { $0.severity == index + 1 }.count,
                       name: element,
                       color: color(forSeverity: index + 1))
         }

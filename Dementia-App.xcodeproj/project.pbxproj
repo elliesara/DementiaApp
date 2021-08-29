@@ -45,6 +45,8 @@
 		0DE3D24624C3D95A0015A31C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */; };
 		0DE3D24924C3D95A0015A31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */; };
 		0DFF68442515BF8E00B16CB0 /* PSymptomsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */; };
+		3610D36626D9803D00EF94A2 /* ReportSymptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610D36526D9803D00EF94A2 /* ReportSymptom.swift */; };
+		3658552626CDA9D4008BB2ED /* Binding+onChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658552526CDA9D4008BB2ED /* Binding+onChange.swift */; };
 		3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */; };
 		36C1FA8626AD977B00BC2374 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8526AD977B00BC2374 /* GraphView.swift */; };
 		36C1FA8A26ADB27F00BC2374 /* DayGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8926ADB27F00BC2374 /* DayGraphView.swift */; };
@@ -93,6 +95,8 @@
 		0DE3D24824C3D95A0015A31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DE3D24A24C3D95A0015A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsViewTest.swift; sourceTree = "<group>"; };
+		3610D36526D9803D00EF94A2 /* ReportSymptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSymptom.swift; sourceTree = "<group>"; };
+		3658552526CDA9D4008BB2ED /* Binding+onChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+onChange.swift"; sourceTree = "<group>"; };
 		3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptomButtonView.swift; sourceTree = "<group>"; };
 		36C1FA8526AD977B00BC2374 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		36C1FA8926ADB27F00BC2374 /* DayGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGraphView.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				0D6CD1FA2515B5EB008DDBAA /* MockedData.swift */,
 				0D755C7C250C8AE100306BE7 /* DateHelper.swift */,
 				0D71A566250439600072CF61 /* Dementia-App.xcdatamodeld */,
+				3658552526CDA9D4008BB2ED /* Binding+onChange.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				36C1FA8926ADB27F00BC2374 /* DayGraphView.swift */,
 				36C1FA8B26ADF32B00BC2374 /* WeekGraphView.swift */,
 				36C1FA8D26ADFD3300BC2374 /* MonthGraphView.swift */,
+				3610D36526D9803D00EF94A2 /* ReportSymptom.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 				0D9E294B24E6427F00682DAA /* SSymptomEntity.swift in Sources */,
 				0D898151252059B8007058DC /* TextFieldType.swift in Sources */,
 				0D084C0C2697D86D006A5248 /* MSymptomView.swift in Sources */,
+				3610D36626D9803D00EF94A2 /* ReportSymptom.swift in Sources */,
 				3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */,
 				0D62487124C3DB2A0085C195 /* Old-SocialView.swift in Sources */,
 				0D62486624C3DA800085C195 /* ReportsView.swift in Sources */,
@@ -352,6 +359,7 @@
 				0D9E293C24E63E0B00682DAA /* AccountInfoView.swift in Sources */,
 				0D6CD1F92515B155008DDBAA /* PSymptomListEntity.swift in Sources */,
 				0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */,
+				3658552626CDA9D4008BB2ED /* Binding+onChange.swift in Sources */,
 				0D9E294924E6425400682DAA /* MSymptomEntity.swift in Sources */,
 				0D9E294524E6412A00682DAA /* PSymptomEntity.swift in Sources */,
 				36C1FA8C26ADF32B00BC2374 /* WeekGraphView.swift in Sources */,

@@ -55,7 +55,7 @@ struct MonthGraphView: View {
         for data in reportData where data.date >= Date().startOfMonth {
             ranges.enumerated().forEach { index, range in
                 if data.date >= range.0 && data.date <= range.1 {
-                    values[index] += Int(data.symptoms.map { $0.pSeverity }.reduce(0, +))
+                    values[index] += Int(data.symptoms.map { $0.severity }.reduce(0, +))
                 }
             }
         }

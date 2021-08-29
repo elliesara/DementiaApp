@@ -16,11 +16,7 @@ struct ReportsView: View {
         formatter.setLocalizedDateFormatFromTemplate("E, d MMM yyyy")
         return formatter
     }()
-    @State private var symptomType = 0 {
-        didSet {
-            print(symptomType)
-        }
-    }
+    @State private var symptomType = 0
     @State private var entries: [ReportData] = []
     
     var body: some View {
@@ -29,8 +25,8 @@ struct ReportsView: View {
                 header
                 ForEach(entries) { entry in
                     Section(header: header(for: entry)) {
-                        ForEach(entry.symptoms) { symptom in
-                            Text(symptom.pSymptomName)
+                        ForEach(entry.symptoms, id: \.id) { (symptom: ReportSymptom) in
+                            Text(symptom.name)
                         }
                     }
                 }
@@ -70,7 +66,7 @@ struct ReportsView: View {
                 }.frame(height: 250)
             }
             
-            Picker(selection: $symptomType, label: Text("Select the type of symptoms")) {
+            Picker(selection: $symptomType.onChange(onSymptomTypeChange), label: Text("Select the type of symptoms")) {
                 Text("Physics").tag(0)
                 Text("Mental").tag(1)
                 Text("Social").tag(2)
@@ -81,13 +77,30 @@ struct ReportsView: View {
         }
     }
     
+    private func onSymptomTypeChange(_ symptomType: Int) {
+        loadEntries()
+    }
+    
     private func loadEntries() {
-        let request = PSymptomEntity.getPSymptoms()
-        let entities = try! managedObjectContext.fetch(request)
-        
-        entries = Dictionary(grouping: entities, by: { $0.pCreatedAt.startOfDay }).map { date, value in
+        entries = Dictionary(grouping: currentEntries, by: { $0.createdAt.startOfDay }).map { date, value in
             ReportData(date: date, symptoms: value)
         }.sorted(by: { $0.date > $1.date })
+    }
+    
+    private var currentEntries: [ReportSymptom] {
+        switch symptomType {
+        case 0:
+            let request = PSymptomEntity.getPSymptoms()
+            return try! managedObjectContext.fetch(request)
+        case 1:
+            let request = MSymptomEntity.getMSymptoms()
+            return try! managedObjectContext.fetch(request)
+        case 2:
+            let request = SSymptomEntity.getSSymptoms()
+            return try! managedObjectContext.fetch(request)
+        default:
+            preconditionFailure("Unknown symptomType")
+        }
     }
 }
 
@@ -97,7 +110,7 @@ struct ReportData: Identifiable {
     }
     
     let date: Date
-    let symptoms: [PSymptomEntity]
+    let symptoms: [ReportSymptom]
 }
 
 struct ReportsView_Previews: PreviewProvider {

@@ -19,11 +19,8 @@ public class SSymptomEntity: NSManagedObject, Identifiable {
 extension SSymptomEntity {
     static func getSSymptoms() -> NSFetchRequest<SSymptomEntity> {
         let request: NSFetchRequest<SSymptomEntity> = SSymptomEntity.fetchRequest() as! NSFetchRequest<SSymptomEntity>
-        
-        let sortDescriptor  = NSSortDescriptor(key: "sSymptomName", ascending: true)
-        
+        let sortDescriptor  = NSSortDescriptor(key: "sCreatedAt", ascending: false)
         request.sortDescriptors = [sortDescriptor]
-        
         return request
     }
 }

@@ -34,7 +34,7 @@ struct WeekGraphView: View {
         return dates.enumerated().map { index, element in
             let value = reportData
                 .first(where: { $0.date == element })?
-                .symptoms.map(\.pSeverity).reduce(0, +) ?? 0
+                .symptoms.map(\.severity).reduce(0, +) ?? 0
             
             return GraphData(value: Int(value),
                              name: element.dayOfWeek,
