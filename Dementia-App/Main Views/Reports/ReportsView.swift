@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ReportsView: View {
     
+    private static let graphHeight: CGFloat = 250
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -47,23 +49,24 @@ struct ReportsView: View {
         VStack {
             if #available(iOS 14.0, *) {
                 TabView {
-                    DayGraphView(reportData: entries)
-                    WeekGraphView(reportData: entries)
-                    MonthGraphView(reportData: entries)
+                    DayGraphView(reportData: entries).frame(height: ReportsView.graphHeight)
+                    WeekGraphView(reportData: entries).frame(height: ReportsView.graphHeight)
+                    MonthGraphView(reportData: entries).frame(height: ReportsView.graphHeight)
                 }
-                .frame(height: 250)
+                .frame(height: 350)
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 .tabViewStyle(PageTabViewStyle())
+                .padding([.top], -30)
             } else {
                 GeometryReader { proxy in
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            DayGraphView(reportData: entries).frame(width: proxy.size.width)
-                            WeekGraphView(reportData: entries).frame(width: proxy.size.width)
-                            MonthGraphView(reportData: entries).frame(width: proxy.size.width)
+                            DayGraphView(reportData: entries).frame(width: proxy.size.width, height: ReportsView.graphHeight)
+                            WeekGraphView(reportData: entries).frame(width: proxy.size.width, height: ReportsView.graphHeight)
+                            MonthGraphView(reportData: entries).frame(width: proxy.size.width, height: ReportsView.graphHeight)
                         }
                     }
-                }.frame(height: 250)
+                }.frame(height: 275)
             }
             
             Picker(selection: $symptomType.onChange(onSymptomTypeChange), label: Text("Select the type of symptoms")) {
@@ -74,6 +77,7 @@ struct ReportsView: View {
             .pickerStyle(SegmentedPickerStyle())
             .labelsHidden()
             .padding()
+            .padding([.top], -25)
         }
     }
     
