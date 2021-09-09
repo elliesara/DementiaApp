@@ -47,6 +47,8 @@
 		0DFF68442515BF8E00B16CB0 /* PSymptomsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */; };
 		3610D36626D9803D00EF94A2 /* ReportSymptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610D36526D9803D00EF94A2 /* ReportSymptom.swift */; };
 		3610D36826E9FC5300EF94A2 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610D36726E9FC5300EF94A2 /* NotificationsView.swift */; };
+		3610D36B26EA095600EF94A2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610D36A26EA095600EF94A2 /* NotificationManager.swift */; };
+		3610D36D26EA3AB500EF94A2 /* ReminderTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610D36C26EA3AB400EF94A2 /* ReminderTimeManager.swift */; };
 		3658552626CDA9D4008BB2ED /* Binding+onChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658552526CDA9D4008BB2ED /* Binding+onChange.swift */; };
 		3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */; };
 		36C1FA8626AD977B00BC2374 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8526AD977B00BC2374 /* GraphView.swift */; };
@@ -98,6 +100,8 @@
 		0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsViewTest.swift; sourceTree = "<group>"; };
 		3610D36526D9803D00EF94A2 /* ReportSymptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSymptom.swift; sourceTree = "<group>"; };
 		3610D36726E9FC5300EF94A2 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		3610D36A26EA095600EF94A2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		3610D36C26EA3AB400EF94A2 /* ReminderTimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTimeManager.swift; sourceTree = "<group>"; };
 		3658552526CDA9D4008BB2ED /* Binding+onChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+onChange.swift"; sourceTree = "<group>"; };
 		3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptomButtonView.swift; sourceTree = "<group>"; };
 		36C1FA8526AD977B00BC2374 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		0D9E293A24E63DE600682DAA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				3610D36926EA093F00EF94A2 /* Notifications */,
 				0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */,
 				0D9E293D24E63E2700682DAA /* AboutView.swift */,
 				3610D36726E9FC5300EF94A2 /* NotificationsView.swift */,
@@ -237,6 +242,15 @@
 				0DE3D24524C3D95A0015A31C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3610D36926EA093F00EF94A2 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				3610D36A26EA095600EF94A2 /* NotificationManager.swift */,
+				3610D36C26EA3AB400EF94A2 /* ReminderTimeManager.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		3662A2E5267FDA5E0082740E /* CommonViews */ = {
@@ -330,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3610D36D26EA3AB500EF94A2 /* ReminderTimeManager.swift in Sources */,
 				0D755C7D250C8AE100306BE7 /* DateHelper.swift in Sources */,
 				0D62486824C3DA920085C195 /* SettingsView.swift in Sources */,
 				36C1FA8626AD977B00BC2374 /* GraphView.swift in Sources */,
@@ -356,6 +371,7 @@
 				0D62487124C3DB2A0085C195 /* Old-SocialView.swift in Sources */,
 				0D62486624C3DA800085C195 /* ReportsView.swift in Sources */,
 				0D62486B24C3DAB50085C195 /* BigCategoriesView.swift in Sources */,
+				3610D36B26EA095600EF94A2 /* NotificationManager.swift in Sources */,
 				0D084C0A2697CBC5006A5248 /* MSymptomListEntity.swift in Sources */,
 				0D62487724C3DB6A0085C195 /* SSymptomsView.swift in Sources */,
 				0D62486D24C3DAC60085C195 /* Old-PhysicalView.swift in Sources */,
