@@ -46,6 +46,7 @@
 		0DE3D24924C3D95A0015A31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE3D24724C3D95A0015A31C /* LaunchScreen.storyboard */; };
 		0DFF68442515BF8E00B16CB0 /* PSymptomsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */; };
 		3610D36626D9803D00EF94A2 /* ReportSymptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610D36526D9803D00EF94A2 /* ReportSymptom.swift */; };
+		3610D36826E9FC5300EF94A2 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610D36726E9FC5300EF94A2 /* NotificationsView.swift */; };
 		3658552626CDA9D4008BB2ED /* Binding+onChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3658552526CDA9D4008BB2ED /* Binding+onChange.swift */; };
 		3662A2E7267FDA7D0082740E /* NewSymptomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */; };
 		36C1FA8626AD977B00BC2374 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1FA8526AD977B00BC2374 /* GraphView.swift */; };
@@ -96,6 +97,7 @@
 		0DE3D24A24C3D95A0015A31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DFF68432515BF8E00B16CB0 /* PSymptomsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSymptomsViewTest.swift; sourceTree = "<group>"; };
 		3610D36526D9803D00EF94A2 /* ReportSymptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSymptom.swift; sourceTree = "<group>"; };
+		3610D36726E9FC5300EF94A2 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		3658552526CDA9D4008BB2ED /* Binding+onChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+onChange.swift"; sourceTree = "<group>"; };
 		3662A2E6267FDA7D0082740E /* NewSymptomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptomButtonView.swift; sourceTree = "<group>"; };
 		36C1FA8526AD977B00BC2374 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				0D9E293B24E63E0B00682DAA /* AccountInfoView.swift */,
 				0D9E293D24E63E2700682DAA /* AboutView.swift */,
+				3610D36726E9FC5300EF94A2 /* NotificationsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				0D084C0A2697CBC5006A5248 /* MSymptomListEntity.swift in Sources */,
 				0D62487724C3DB6A0085C195 /* SSymptomsView.swift in Sources */,
 				0D62486D24C3DAC60085C195 /* Old-PhysicalView.swift in Sources */,
+				3610D36826E9FC5300EF94A2 /* NotificationsView.swift in Sources */,
 				0D9E293C24E63E0B00682DAA /* AccountInfoView.swift in Sources */,
 				0D6CD1F92515B155008DDBAA /* PSymptomListEntity.swift in Sources */,
 				0D62487F24C3DBC00085C195 /* Questionaire.swift in Sources */,

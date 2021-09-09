@@ -9,86 +9,45 @@
 import SwiftUI
 struct SettingsView: View {
     
-    @State private var notifications: Bool = false
+    @State private var stepperValue: Int = 0
+    
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 40) {
+                fontSize
+                NotificationsView()
+                aboutUs
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .navigationBarTitle("Settings")
+        }
+    }
+    
+    private var fontSize: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Font Size")
+                .font(.headline)
+            Stepper("Change your font size here:", value: $stepperValue, in: 0...6)
+                .font(.footnote)
+                .fixedSize()
+            HStack {
+                Spacer()
                 Group {
-                    HStack{
-                        Text("About")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .multilineTextAlignment(.leading)
-                        Spacer()
-                            .frame(width: 226)
-                        NavigationLink(destination: AboutView()){
-                            Image(systemName: "arrow.right")
-                        }
-                    }
-                    Spacer()
-                        .frame(height:25)
-                }
-                Group {
-                    HStack{
-                        Text("Font Size")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .multilineTextAlignment(.leading)
-                    }
-                    Spacer()
-                        .frame(height:25)
-                }
-                Group {
-                    Toggle(isOn: self.$notifications){
-                        Text("Notifications")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .multilineTextAlignment(.leading)
-                    }.frame(width:300)
-                    Spacer()
-                        .frame(height:25)
-                }
-                Group {
-                    HStack{
-                        Text("Account Information")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                        Spacer()
-                            .frame(width:125)
-                        NavigationLink(destination: AccountInfoView()){
-                            Image(systemName: "arrow.right")
-                        }
-                    }
-                    Spacer()
-                        .frame(height:25)
-                }
-                Group {
-                    HStack{
-                        Text("Reminders")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .multilineTextAlignment(.leading)
-                    }
-                    Spacer()
-                        .frame(height:25)
-                }
-                Group {
-                    HStack{
-                        Text("Help")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .multilineTextAlignment(.leading)
-                    }
-                    Spacer()
-                        .frame(height:240)
-                }
-            }.navigationBarTitle("Settings")
+                    Text("This is what your font looks like.").padding()
+                }.background(Color.gray)
+                Spacer()
+            }.padding([.top], 20)
+        }
+    }
+    
+    private var aboutUs: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("About us")
+                .font(.headline)
+            Text("TBD")
+                .font(.footnote)
         }
     }
 }
