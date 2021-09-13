@@ -8,18 +8,37 @@
 
 import Foundation
 
+private let notificationsOnKey = "notificationsOn"
+
 class ReminderTimeManager {
     
     private static let reminderKeyPrefix = "reminder"
     private static let morningReminderDefault = Date(timeIntervalSince1970: 8 * 60 * 60)
     private static let afternoonReminderDefault = Date(timeIntervalSince1970: 12 * 60 * 60)
     private static let eveningReminderDefault = Date(timeIntervalSince1970: 18 * 60 * 60)
+    private let reminderNotificationManager = ReminderNotificationManager()
+    
+    var notificationsOn: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: notificationsOnKey)
+        }
+        set {
+            if newValue {
+                UserDefaults.standard.set(true, forKey: notificationsOnKey)
+                reminderNotificationManager.scheduleNotifications(dates: reminderTimes)
+                return
+            }
+            UserDefaults.standard.removeObject(forKey: notificationsOnKey)
+            reminderNotificationManager.cancelNotifications()
+        }
+    }
     
     var reminderTimes: [Date] {
         set {
             newValue.enumerated().forEach { index, date in
                 UserDefaults.standard.set(date, forKey: "\(ReminderTimeManager.reminderKeyPrefix)\(index)")
             }
+            reminderNotificationManager.scheduleNotifications(dates: reminderTimes)
         }
         get {
             [

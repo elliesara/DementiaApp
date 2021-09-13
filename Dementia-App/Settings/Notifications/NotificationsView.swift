@@ -9,8 +9,6 @@
 import SwiftUI
 import Combine
 
-private let notificationsOnKey = "notificationsOn"
-
 struct NotificationsView: View {
     @State private var notificationsOn = false
     @State private var notificationsDenied = false
@@ -23,7 +21,7 @@ struct NotificationsView: View {
     @State private var notificationsSettingsPublisher: AnyCancellable?
     
     private var notificationsStored: Bool {
-        UserDefaults.standard.bool(forKey: notificationsOnKey)
+        reminderTimeManager.notificationsOn
     }
     
     var body: some View {
@@ -77,7 +75,7 @@ struct NotificationsView: View {
             requestPermissions()
             return
         }
-        UserDefaults.standard.removeObject(forKey: notificationsOnKey)
+        reminderTimeManager.notificationsOn = false
         readNotificationSettings()
     }
     
@@ -103,9 +101,7 @@ struct NotificationsView: View {
     private func requestPermissions() {
         notificationManager.requestPermissions { granted in
             DispatchQueue.main.async {
-                if granted {
-                    UserDefaults.standard.set(true, forKey: notificationsOnKey)
-                }
+                reminderTimeManager.notificationsOn = granted
                 readNotificationSettings()
             }
         }
