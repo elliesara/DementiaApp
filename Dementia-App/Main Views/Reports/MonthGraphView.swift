@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MonthGraphView: View {
     let reportData: [ReportData]
+    let onTap: (_ week: Int) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,7 +18,10 @@ struct MonthGraphView: View {
                 .font(.title)
                 .fontWeight(.bold)
             
-            GraphView(data: graphData)
+            GraphView(data: graphData, onTap: { index in
+                guard let index = index else { return }
+                onTap(index)
+            })
             .frame(height: 200)
             .padding([.leading, .trailing], 5)
         }
@@ -83,6 +87,6 @@ struct MonthGraphView: View {
 
 struct MonthGraphView_Previews: PreviewProvider {
     static var previews: some View {
-        MonthGraphView(reportData: [])
+        MonthGraphView(reportData: [], onTap: { _ in })
     }
 }

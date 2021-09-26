@@ -10,6 +10,9 @@ import SwiftUI
 
 struct DayGraphView: View {
     let reportData: [ReportData]
+    let onTap: (_ severity: Int) -> Void
+    
+    private let severities = ["Mild", "Moderate", "Severe", "Deadly"]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,7 +20,10 @@ struct DayGraphView: View {
                 .font(.title)
                 .fontWeight(.bold)
             
-            GraphView(data: graphData)
+            GraphView(data: graphData, onTap: { index in
+                guard let index = index else { return }
+                onTap(index + 1)
+            })
             .frame(height: 200)
             .padding([.leading, .trailing], 5)
         }
@@ -28,7 +34,6 @@ struct DayGraphView: View {
     }
     
     private var graphData: [GraphData] {
-        let severities = ["Mild", "Moderate", "Severe", "Deadly"]
         let entries = entries
         
         return severities.enumerated().map { index, element in
@@ -56,6 +61,6 @@ struct DayGraphView: View {
 
 struct DayGraphView_Previews: PreviewProvider {
     static var previews: some View {
-        DayGraphView(reportData: [])
+        DayGraphView(reportData: [], onTap: { _ in })
     }
 }

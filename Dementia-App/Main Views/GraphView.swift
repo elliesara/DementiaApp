@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct GraphData: Identifiable {
+struct GraphData: Identifiable, Equatable {
     var id: String {
         name
     }
@@ -20,6 +20,7 @@ struct GraphData: Identifiable {
 
 struct GraphView: View {
     let data: [GraphData]
+    let onTap: (Int?) -> Void
 
     var body: some View {
         VStack(spacing: 0) {
@@ -34,6 +35,9 @@ struct GraphView: View {
                         Rectangle()
                             .fill(entry.color)
                             .frame(width: barWidth, height: barHeight(for: entry) * 0.8 * reader.size.height)
+                            .onTapGesture {
+                                onTap(data.firstIndex(where: { $0 == entry }))
+                            }
                         Spacer()
                     }
                 }
@@ -78,6 +82,6 @@ struct GraphView_Previews: PreviewProvider {
             GraphData(value: 5, name: "Moderate", color: .yellow),
             GraphData(value: 2, name: "Severe", color: .blue),
             GraphData(value: 1, name: "Deadly", color: .purple),
-        ]).frame(height: 200)
+        ], onTap: { _ in }).frame(height: 200)
     }
 }

@@ -7,6 +7,13 @@
 //
 
 import SwiftUI
+import CoreData
+
+enum FilterType: Equatable {
+    case severity(type: Int)
+    case dayOfWeek(number: Int)
+    case week(number: Int)
+}
 
 struct ReportsView: View {
     
@@ -19,13 +26,15 @@ struct ReportsView: View {
         return formatter
     }()
     @State private var symptomType = 0
-    @State private var entries: [ReportData] = []
+    @State private var listEntries: [ReportData] = []
+    @State private var graphEntries: [ReportData] = []
+    @State private var filter: FilterType?
     
     var body: some View {
         NavigationView {
             List {
                 header
-                ForEach(entries) { entry in
+                ForEach(listEntries) { entry in
                     Section(header: header(for: entry)) {
                         ForEach(entry.symptoms, id: \.id) { (symptom: ReportSymptom) in
                             Text(symptom.name)
@@ -45,13 +54,28 @@ struct ReportsView: View {
             .padding([.top, .bottom])
     }
     
+    private func setFilter(newFilter: FilterType) {
+        if filter == newFilter {
+            filter = nil
+        } else {
+            filter = newFilter
+        }
+        loadEntries()
+    }
+    
     private var header: some View {
         VStack {
             if #available(iOS 14.0, *) {
                 TabView {
-                    DayGraphView(reportData: entries).frame(height: ReportsView.graphHeight)
-                    WeekGraphView(reportData: entries).frame(height: ReportsView.graphHeight)
-                    MonthGraphView(reportData: entries).frame(height: ReportsView.graphHeight)
+                    DayGraphView(reportData: graphEntries, onTap: { category in
+                        setFilter(newFilter: .severity(type: category))
+                    }).frame(height: ReportsView.graphHeight)
+                    WeekGraphView(reportData: graphEntries, onTap: { day in
+                        setFilter(newFilter: .dayOfWeek(number: day))
+                    }).frame(height: ReportsView.graphHeight)
+                    MonthGraphView(reportData: graphEntries, onTap: { week in
+                        setFilter(newFilter: .week(number: week))
+                    }).frame(height: ReportsView.graphHeight)
                 }
                 .frame(height: 350)
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
@@ -61,9 +85,15 @@ struct ReportsView: View {
                 GeometryReader { proxy in
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            DayGraphView(reportData: entries).frame(width: proxy.size.width, height: ReportsView.graphHeight)
-                            WeekGraphView(reportData: entries).frame(width: proxy.size.width, height: ReportsView.graphHeight)
-                            MonthGraphView(reportData: entries).frame(width: proxy.size.width, height: ReportsView.graphHeight)
+                            DayGraphView(reportData: graphEntries, onTap: { category in
+                                setFilter(newFilter: .severity(type: category))
+                            }).frame(width: proxy.size.width, height: ReportsView.graphHeight)
+                            WeekGraphView(reportData: graphEntries, onTap: { day in
+                                setFilter(newFilter: .dayOfWeek(number: day))
+                            }).frame(width: proxy.size.width, height: ReportsView.graphHeight)
+                            MonthGraphView(reportData: graphEntries, onTap: { week in
+                                setFilter(newFilter: .week(number: week))
+                            }).frame(width: proxy.size.width, height: ReportsView.graphHeight)
                         }
                     }
                 }.frame(height: 275)
@@ -86,9 +116,12 @@ struct ReportsView: View {
     }
     
     private func loadEntries() {
-        entries = Dictionary(grouping: currentEntries, by: { $0.createdAt.startOfDay }).map { date, value in
+        print("filter: \(filter)")
+        graphEntries = Dictionary(grouping: currentEntries, by: { $0.createdAt.startOfDay }).map { date, value in
             ReportData(date: date, symptoms: value)
         }.sorted(by: { $0.date > $1.date })
+        
+        setListEntries()
     }
     
     private var currentEntries: [ReportSymptom] {
@@ -104,6 +137,20 @@ struct ReportsView: View {
             return try! managedObjectContext.fetch(request)
         default:
             preconditionFailure("Unknown symptomType")
+        }
+    }
+    
+    private func setListEntries() {
+        listEntries = graphEntries
+        guard let filter = filter else { return }
+        
+        switch filter {
+        case .severity(let type):
+            break
+        case .dayOfWeek(let number):
+            break
+        case .week(let number):
+            break
         }
     }
 }
