@@ -140,6 +140,10 @@ extension Date {
         return Calendar.current.startOfDay(for: self)
     }
     
+    var weekOfMonth: Int {
+        return Calendar.current.component(.weekOfMonth, from: self)
+    }
+    
     /// Start of adjacent day local time
     func startOfAdjacentDay(offset: Offset) -> Date {
         var components = DateComponents()

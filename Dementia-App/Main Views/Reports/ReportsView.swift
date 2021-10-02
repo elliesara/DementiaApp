@@ -146,11 +146,17 @@ struct ReportsView: View {
         
         switch filter {
         case .severity(let type):
-            break
+            let startOfDay = Date().startOfDay
+            listEntries = listEntries.filter { $0.date >= startOfDay }.map { data in
+                ReportData(date: data.date, symptoms: data.symptoms.filter { symptom in symptom.severity == type })
+            }
         case .dayOfWeek(let number):
-            break
+            let currentWeekdayNumber = Date().weekdayNumber
+            let date = Calendar.current.date(byAdding: DateComponents(weekday: -(currentWeekdayNumber - number - 1)), to: Date().startOfDay)!
+            listEntries = listEntries.filter { $0.date.startOfDay == date }
         case .week(let number):
-            break
+            let startOfMonth = Date().startOfMonth
+            listEntries = listEntries.filter { $0.date > startOfMonth && $0.date.weekOfMonth == number + 1 }
         }
     }
 }
